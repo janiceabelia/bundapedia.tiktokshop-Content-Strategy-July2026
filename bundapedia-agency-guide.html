@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bundapedia — Agency Content Guide July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pk1:#D63A6F;--pk2:#F06292;--pk3:#FCE4EC;--pk4:#FFF5F8;
+  --bl1:#2563EB;--bl2:#60A5FA;--bl3:#DBEAFE;--bl4:#EFF6FF;
+  --pu1:#7C3AED;--pu2:#C4B5FD;--pu3:#EDE9FE;
+  --gn1:#059669;--gn3:#D1FAE5;
+  --or1:#D97706;--or3:#FEF3C7;
+  --gr9:#111827;--gr7:#374151;--gr5:#6B7280;--gr3:#D1D5DB;--gr1:#F9FAFB;
+  --white:#FFFFFF;--r:14px;--rs:8px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--gr7);line-height:1.65;font-size:14px;}
+
+/* COVER */
+.cover{min-height:100vh;background:linear-gradient(150deg,#FFF0F5 0%,#EFF6FF 50%,#FFF0F5 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 32px;position:relative;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;pointer-events:none;}
+.blob1{width:500px;height:500px;background:radial-gradient(circle,rgba(214,58,111,.10),transparent 70%);top:-150px;left:-150px;}
+.blob2{width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.10),transparent 70%);bottom:-100px;right:-100px;}
+.cover-eye{display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--pk2);border-radius:50px;padding:6px 18px;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--pk1);text-transform:uppercase;margin-bottom:28px;}
+.cover h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.5vw,60px);font-weight:800;line-height:1.1;color:var(--gr9);margin-bottom:16px;}
+.cover h1 em{font-style:normal;color:var(--pk1);}
+.cover h1 span{color:var(--bl1);}
+.cover-sub{font-size:15px;color:var(--gr5);max-width:520px;margin:0 auto 36px;}
+.cover-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;}
+.ctag{background:white;border-radius:50px;padding:7px 16px;font-size:12px;font-weight:600;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.ctag.pk{color:var(--pk1);border:1.5px solid var(--pk2);}
+.ctag.bl{color:var(--bl1);border:1.5px solid var(--bl2);}
+.ctag.pu{color:var(--pu1);border:1.5px solid var(--pu2);}
+.cover-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.npill{background:white;border-radius:50px;padding:8px 20px;font-size:12px;font-weight:600;color:var(--gr7);text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1.5px solid var(--gr3);transition:all .2s;}
+.npill:hover{background:var(--pk4);border-color:var(--pk2);color:var(--pk1);}
+
+/* LAYOUT */
+.sec{padding:72px 0;}
+.sec-alt{background:var(--gr1);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+.divider{height:3px;border:none;background:linear-gradient(90deg,var(--pk2),var(--bl2),var(--pu2));opacity:.25;}
+.eye{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:50px;padding:4px 14px;margin-bottom:10px;}
+.eye.pk{color:var(--pk1);background:var(--pk3);}
+.eye.bl{color:var(--bl1);background:var(--bl3);}
+.eye.pu{color:var(--pu1);background:var(--pu3);}
+.eye.gn{color:var(--gn1);background:var(--gn3);}
+.eye.or{color:var(--or1);background:var(--or3);}
+.sec-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--gr9);margin-bottom:8px;line-height:1.2;}
+.sec-d{font-size:13px;color:var(--gr5);max-width:620px;margin-bottom:36px;}
+
+/* SCHEDULE GRID */
+.sched{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:48px;}
+.sday{border-radius:var(--r);padding:18px 12px;text-align:center;border:1.5px solid transparent;}
+.sday.sun{background:#FFFBEB;border-color:#FCD34D;}
+.sday.mon{background:var(--pk4);border-color:var(--pk2);}
+.sday.tue{background:var(--bl4);border-color:var(--bl2);}
+.sday.wed{background:#FFF5F8;border-color:#F9A8D4;position:relative;}
+.sday.wed::after{content:'NEW';position:absolute;top:-8px;right:-6px;background:var(--pk1);color:white;font-size:9px;font-weight:800;padding:2px 7px;border-radius:50px;letter-spacing:.06em;}
+.sday.thu{background:var(--bl4);border-color:var(--bl2);}
+.sday.fri{background:var(--pu3);border-color:var(--pu2);}
+.sday.sat{background:#F0FDF4;border-color:#6EE7B7;}
+.sday-icon{font-size:22px;margin-bottom:8px;}
+.sday-name{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.sday.sun .sday-name{color:var(--or1);}
+.sday.mon .sday-name,.sday.wed .sday-name{color:var(--pk1);}
+.sday.tue .sday-name,.sday.thu .sday-name{color:var(--bl1);}
+.sday.fri .sday-name{color:var(--pu1);}
+.sday.sat .sday-name{color:var(--gn1);}
+.sday-label{font-size:11px;font-weight:600;color:var(--gr9);margin-bottom:3px;}
+.sday-note{font-size:10px;color:var(--gr5);line-height:1.5;}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.cbox{background:white;border-radius:var(--r);padding:28px 24px;border:1px solid var(--gr3);box-shadow:0 2px 16px rgba(0,0,0,.05);}
+.cbox h3{font-size:13px;font-weight:700;color:var(--gr9);margin-bottom:3px;}
+.cbox p{font-size:11px;color:var(--gr5);margin-bottom:18px;}
+.cwrap{height:220px;position:relative;}
+
+/* SERIES HEADER */
+.s-head{display:flex;align-items:flex-start;gap:20px;background:white;border-radius:var(--r);padding:28px;border:1px solid var(--gr3);margin-bottom:24px;box-shadow:0 2px 16px rgba(0,0,0,.05);}
+.s-icon{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.s-icon.pk{background:var(--pk3);}
+.s-meta{}
+.s-kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.s-kicker.pk{color:var(--pk1);}
+.s-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--gr9);margin-bottom:6px;}
+.s-tag{font-size:12px;color:var(--gr5);font-style:italic;margin-bottom:12px;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;}
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:50px;}
+.pill.pk{background:var(--pk3);color:var(--pk1);}
+.pill.bl{background:var(--bl3);color:var(--bl1);}
+.pill.gr{background:var(--gr1);color:var(--gr7);border:1px solid var(--gr3);}
+.pill.or{background:var(--or3);color:var(--or1);}
+
+/* FORMAT MINI CARDS */
+.fmt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:36px;}
+.fmt-card{background:white;border-radius:var(--r);padding:18px;border:1px solid var(--gr3);}
+.fmt-icon{font-size:18px;margin-bottom:8px;}
+.fmt-name{font-size:12px;font-weight:700;color:var(--gr9);margin-bottom:4px;}
+.fmt-desc{font-size:11.5px;color:var(--gr5);line-height:1.6;}
+
+/* CATEGORY TOPICS */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:36px;}
+.cat-card{background:white;border-radius:var(--r);padding:20px;border:1px solid var(--gr3);}
+.cat-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.cat-card h3{font-size:13px;font-weight:700;color:var(--gr9);margin-bottom:6px;}
+.cat-topics{list-style:none;}
+.cat-topics li{font-size:11.5px;color:var(--gr5);padding:4px 0;border-bottom:1px dashed var(--gr3);display:flex;gap:6px;}
+.cat-topics li:last-child{border-bottom:none;}
+
+/* EXAMPLES — new structured format */
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;}
+.ex-card{background:white;border-radius:var(--r);padding:22px;border:1px solid var(--gr3);box-shadow:0 2px 10px rgba(0,0,0,.04);transition:box-shadow .2s,transform .2s;}
+.ex-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.09);transform:translateY(-2px);}
+.ex-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;font-size:12px;font-weight:800;margin-bottom:10px;}
+.ex-num.pk{background:var(--pk3);color:var(--pk1);}
+.ex-num.pu{background:var(--pu3);color:var(--pu1);}
+.ex-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.ex-cat.pk{color:var(--pk1);}
+.ex-cat.pu{color:var(--pu1);}
+.ex-title{font-size:13px;font-weight:700;color:var(--gr9);margin-bottom:12px;}
+/* Script structured rows */
+.script-struct{border-radius:var(--rs);overflow:hidden;border:1px solid var(--gr3);margin-bottom:10px;}
+.ss-row{display:flex;gap:0;border-bottom:1px solid var(--gr3);}
+.ss-row:last-child{border-bottom:none;}
+.ss-label{min-width:110px;padding:10px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:flex-start;padding-top:11px;}
+.ss-label.pk{background:var(--pk3);color:var(--pk1);}
+.ss-label.pu{background:var(--pu3);color:var(--pu1);}
+.ss-body{padding:10px 12px;font-size:12px;color:var(--gr7);line-height:1.65;flex:1;background:white;}
+.ss-body strong{color:var(--gr9);}
+.talent-note{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:50px;margin-top:2px;}
+.talent-note.solo{background:var(--bl3);color:var(--bl1);}
+.talent-note.vo{background:var(--or3);color:var(--or1);}
+
+/* MOM RELATABLE */
+.tone-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;}
+.tone-c{flex:1;min-width:130px;background:white;border-radius:var(--r);padding:16px;border:1px solid var(--gr3);text-align:center;}
+.tone-e{font-size:24px;margin-bottom:6px;}
+.tone-n{font-size:12px;font-weight:700;color:var(--gr9);margin-bottom:3px;}
+.tone-d{font-size:11px;color:var(--gr5);}
+
+/* FORMAT TYPE LEGEND */
+.fmt-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
+.fleg{border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:600;}
+.fleg.pov{background:var(--pu3);color:var(--pu1);}
+.fleg.conf{background:var(--pk3);color:var(--pk1);}
+.fleg.rant{background:var(--or3);color:var(--or1);}
+.fleg.vs{background:var(--bl3);color:var(--bl1);}
+.fleg.text{background:var(--gn3);color:var(--gn1);}
+
+/* RELATABLE CARD — flexible format */
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:36px;}
+.rel-card{background:white;border-radius:var(--r);border:1px solid var(--gr3);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:box-shadow .2s,transform .2s;}
+.rel-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.09);transform:translateY(-2px);}
+.rel-top{padding:16px 18px 12px;}
+.rel-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;font-size:11px;font-weight:800;margin-bottom:8px;}
+.rel-num.pu{background:var(--pu3);color:var(--pu1);}
+.rel-num.pk{background:var(--pk3);color:var(--pk1);}
+.rel-num.or{background:var(--or3);color:var(--or1);}
+.rel-num.bl{background:var(--bl3);color:var(--bl1);}
+.rel-num.gn{background:var(--gn3);color:var(--gn1);}
+.rel-ftype{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;}
+.rel-ftype.pov{color:var(--pu1);}
+.rel-ftype.conf{color:var(--pk1);}
+.rel-ftype.rant{color:var(--or1);}
+.rel-ftype.vs{color:var(--bl1);}
+.rel-ftype.text{color:var(--gn1);}
+.rel-title{font-size:13px;font-weight:700;color:var(--gr9);margin-bottom:6px;}
+.rel-desc{font-size:11.5px;color:var(--gr5);line-height:1.6;margin-bottom:10px;}
+.rel-screen{background:var(--gr9);margin:0 18px;border-radius:10px;padding:12px 14px;}
+.rel-screen-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;}
+.rel-screen-text{font-size:12.5px;color:white;font-weight:600;line-height:1.5;}
+.rel-screen-text em{color:#F9A8D4;font-style:normal;}
+.rel-confbox{background:var(--pk4);border-left:3px solid var(--pk2);margin:0 18px;border-radius:var(--rs);padding:12px 14px;font-size:12.5px;color:var(--gr7);line-height:1.65;}
+.rel-confbox strong{color:var(--gr9);}
+.rel-textbox{background:var(--gn3);border-left:3px solid var(--gn1);margin:0 18px;border-radius:var(--rs);padding:12px 14px;font-size:12.5px;color:var(--gr7);line-height:1.65;}
+.rel-textbox strong{color:var(--gr9);}
+.rel-vsbox{margin:0 18px;}
+.vs-row{display:flex;gap:8px;margin-bottom:6px;}
+.vs-side{flex:1;border-radius:var(--rs);padding:8px 10px;font-size:11.5px;font-weight:600;line-height:1.5;}
+.vs-side.a{background:var(--bl3);color:var(--bl1);}
+.vs-side.b{background:var(--pk3);color:var(--pk1);}
+.vs-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;opacity:.7;margin-bottom:2px;}
+.rel-bottom{padding:12px 18px;}
+.rel-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.rchip{font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:50px;}
+.rchip.vis{background:var(--bl3);color:var(--bl1);}
+.rchip.snd{background:var(--pk3);color:var(--pk1);}
+.rchip.vibe{background:var(--pu3);color:var(--pu1);}
+.rchip.cta{background:var(--gn3);color:var(--gn1);}
+
+.protip{background:linear-gradient(135deg,var(--pu3),var(--pk4));border-radius:var(--r);padding:24px 28px;margin-top:36px;border:1px solid var(--pu2);}
+.protip h3{font-size:14px;font-weight:700;color:var(--gr9);margin-bottom:12px;}
+.protip ul{list-style:none;}
+.protip ul li{font-size:13px;color:var(--gr7);padding:5px 0;border-bottom:1px dashed rgba(0,0,0,.08);display:flex;gap:8px;}
+.protip ul li:last-child{border-bottom:none;}
+
+/* CALENDAR */
+.cal-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--gr3);box-shadow:0 2px 16px rgba(0,0,0,.05);}
+table.cal{width:100%;border-collapse:collapse;background:white;min-width:700px;font-size:12.5px;}
+.cal thead{background:linear-gradient(90deg,var(--pk1),var(--bl1));color:white;}
+.cal thead th{padding:13px 16px;font-weight:600;font-size:11px;letter-spacing:.04em;text-align:left;}
+.cal tbody tr{border-bottom:1px solid var(--gr3);transition:background .15s;}
+.cal tbody tr:last-child{border-bottom:none;}
+.cal tbody tr:hover{background:var(--pk4);}
+.cal td{padding:13px 16px;vertical-align:top;}
+.dchip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;white-space:nowrap;margin-bottom:3px;}
+.dchip.sun{background:var(--or3);color:#92400E;}
+.dchip.mon{background:var(--pk3);color:var(--pk1);}
+.dchip.tue{background:var(--bl3);color:var(--bl1);}
+.dchip.wed{background:var(--pk3);color:var(--pk1);}
+.dchip.thu{background:var(--bl3);color:var(--bl1);}
+.dchip.fri{background:var(--pu3);color:var(--pu1);}
+.dchip.sat{background:var(--gn3);color:#065F46;}
+.new-badge{display:inline-flex;font-size:9px;font-weight:800;background:var(--pk1);color:white;padding:1px 7px;border-radius:50px;margin-left:4px;vertical-align:middle;}
+.cal-l{font-weight:600;color:var(--gr9);font-size:12px;margin-bottom:2px;}
+.cal-n{font-size:11px;color:var(--gr5);}
+.schip{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:50px;margin-top:5px;}
+.schip.b101{background:var(--pk3);color:var(--pk1);}
+.schip.rel{background:var(--pu3);color:var(--pu1);}
+
+/* DO DON'T — paired table */
+.dd-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05);}
+.dd-table thead tr{background:var(--gr9);}
+.dd-table thead th{padding:13px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:left;width:50%;}
+.dd-table thead th.doh{color:#6EE7B7;}
+.dd-table thead th.dnt{color:#FCA5A5;}
+.dd-table tbody tr{border-bottom:1px solid var(--gr3);background:white;}
+.dd-table tbody tr:last-child{border-bottom:none;}
+.dd-table tbody tr:hover .dd-do{background:#F0FDF4;}
+.dd-table tbody tr:hover .dd-dn{background:#FFF5F5;}
+.dd-do{padding:13px 20px;font-size:12.5px;color:var(--gr7);border-right:1px solid var(--gr3);vertical-align:top;line-height:1.6;}
+.dd-dn{padding:13px 20px;font-size:12.5px;color:var(--gr7);vertical-align:top;line-height:1.6;}
+.dd-do strong{color:#065F46;}
+.dd-dn strong{color:#991B1B;}
+.dd-topic{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gr5);margin-bottom:4px;}
+
+/* TALENT NOTE BOX */
+.talent-box{background:white;border-radius:var(--r);padding:22px;border:1px solid var(--gr3);margin-top:28px;}
+.talent-box h3{font-size:13px;font-weight:700;color:var(--gr9);margin-bottom:12px;}
+.talent-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.t-card{border-radius:var(--rs);padding:14px;border:1px solid var(--gr3);}
+.t-card.solo{background:var(--bl4);border-color:var(--bl2);}
+.t-card.vo{background:var(--or3);border-color:#FCD34D;}
+.t-card .t-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.t-card.solo .t-label{color:var(--bl1);}
+.t-card.vo .t-label{color:var(--or1);}
+.t-card p{font-size:12px;color:var(--gr7);}
+
+/* FOOTER */
+.footer{background:var(--gr9);color:rgba(255,255,255,.4);padding:40px;text-align:center;font-size:12px;}
+.footer-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:white;margin-bottom:6px;}
+.footer-logo em{color:var(--pk2);font-style:normal;}
+
+@media(max-width:720px){
+  .sched{grid-template-columns:repeat(3,1fr);}
+  .dd-wrap,.talent-row{grid-template-columns:1fr;}
+  .sec{padding:48px 0;}
+  .cover{padding:50px 20px;}
+  .s-head{flex-direction:column;}
+  .ss-label{min-width:80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="cover-eye">🎀 Agency Content Brief · July 2026</div>
+  <h1><em>Bundapedia</em> by TikTok Shop<br><span>Agency Content Guide</span></h1>
+  <p class="cover-sub">A content strategy guide for agency — focused on community building, weekly series, and authentic mom storytelling. Pure content quality, zero transactional push.</p>
+  <div class="cover-tags">
+    <span class="ctag pk">📅 Updated July Schedule</span>
+    <span class="ctag bl">🌸 #Bundapedia101 Series</span>
+    <span class="ctag pu">💕 Mom Relatable (New Format)</span>
+    <span class="ctag pk">🎬 Variative Content Direction</span>
+  </div>
+  <div class="cover-nav">
+    <a href="#schedule" class="npill">Weekly Schedule</a>
+    <a href="#b101" class="npill">#Bundapedia101</a>
+    <a href="#relatable" class="npill">Mom Relatable</a>
+    <a href="#calendar" class="npill">Content Calendar</a>
+    <a href="#dodont" class="npill">Do & Don't</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ SCHEDULE ══ -->
+<section class="sec" id="schedule">
+  <div class="wrap">
+    <div class="eye pk">📋 July 2026 Update</div>
+    <h2 class="sec-h">Weekly Content Schedule</h2>
+    <p class="sec-d">Key update for July: Wed is now a dedicated slot for <strong>#Bundapedia101</strong>. Sun shifts to TikTok Slide format; Sat to Caption-Only with AI short video.</p>
+
+    <div class="sched">
+      <div class="sday sun">
+        <div class="sday-icon">🌅</div>
+        <div class="sday-name">Sun</div>
+        <div class="sday-label">TikTok Slide</div>
+        <div class="sday-note">Instagram-style carousel posted on TikTok. Swipeable, aesthetic.</div>
+      </div>
+      <div class="sday mon">
+        <div class="sday-icon">👩‍💼</div>
+        <div class="sday-name">Mon</div>
+        <div class="sday-label">Mom Educative</div>
+        <div class="sday-note">Parenting tips, mom health. Warm & informative.</div>
+      </div>
+      <div class="sday tue">
+        <div class="sday-icon">🍼</div>
+        <div class="sday-name">Tue</div>
+        <div class="sday-label">Baby Educative</div>
+        <div class="sday-note">Tumbuh kembang, milestone bayi.</div>
+      </div>
+      <div class="sday wed">
+        <div class="sday-icon">🌸</div>
+        <div class="sday-name">Wed</div>
+        <div class="sday-label">#Bundapedia101</div>
+        <div class="sday-note">Weekly series. Light, personal, street-smarts parenting.</div>
+      </div>
+      <div class="sday thu">
+        <div class="sday-icon">👶</div>
+        <div class="sday-name">Thu</div>
+        <div class="sday-label">Baby Educative</div>
+        <div class="sday-note">Myth-busting, deep dive tumbuh kembang.</div>
+      </div>
+      <div class="sday fri">
+        <div class="sday-icon">💕</div>
+        <div class="sday-name">Fri</div>
+        <div class="sday-label">Mom Relatable</div>
+        <div class="sday-note">Variative — POV, confessions, hot takes, ekspektasi vs realita.</div>
+      </div>
+      <div class="sday sat">
+        <div class="sday-icon">✨</div>
+        <div class="sday-name">Sat</div>
+        <div class="sday-label">Caption Only</div>
+        <div class="sday-note">Short AI video + clickbait title. Value ada di caption lengkap.</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="cbox">
+        <h3>Content Distribution per Week</h3>
+        <p>Proporsi konten Juli — Wed berdiri sendiri sebagai #Bundapedia101, Sat menjadi Caption Only</p>
+        <div class="cwrap"><canvas id="cDist"></canvas></div>
+      </div>
+      <div class="cbox">
+        <h3>Primary KPI per Content Type</h3>
+        <p>Setiap slot memiliki target yang berbeda — views bukan satu-satunya ukuran keberhasilan di sini</p>
+        <div class="cwrap"><canvas id="cKpi"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ BUNDAPEDIA 101 ══ -->
+<section class="sec sec-alt" id="b101">
+  <div class="wrap">
+    <div class="eye pk">🌸 Wed Series</div>
+    <h2 class="sec-h">#Bundapedia101</h2>
+    <p class="sec-d">Motherhood Survival Guide versi TikTok — street smarts parenting yang terasa seperti dapat tips dari sahabat sesama ibu. Ringan, personal, tidak perlu terlalu serius. Body language talent boleh santai dan natural.</p>
+
+    <div class="s-head">
+      <div class="s-icon pk">🌸</div>
+      <div class="s-meta">
+        <div class="s-kicker pk">Series Concept · Tayang Setiap Wed</div>
+        <div class="s-title">#Bundapedia101</div>
+        <div class="s-tag">"Ilmu lapangan — gabungan trik darurat, rekomendasi jujur, dan sharing pengalaman harian para Ibu."</div>
+        <div class="pills">
+          <span class="pill pk">⏱ 60–90 detik</span>
+          <span class="pill gr">📁 Dijadikan Album / Playlist</span>
+          <span class="pill bl">🗓 Tayang Wed</span>
+          <span class="pill or">🏷 #Bundapedia101</span>
+          <span class="pill pk">🎤 Signature Opening Wajib</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fmt-grid">
+      <div class="fmt-card">
+        <div class="fmt-icon">🎤</div>
+        <div class="fmt-name">Signature Opening (WAJIB)</div>
+        <div class="fmt-desc"><em>"Kembali lagi di Bundapedia101! Hari ini kita bakal..."</em> — harus ada di setiap episode untuk brand recall dan series identity.</div>
+      </div>
+      <div class="fmt-card">
+        <div class="fmt-icon">🗣</div>
+        <div class="fmt-name">Tone & Body Language</div>
+        <div class="fmt-desc">Kasual, jujur, solutif. <strong>Tidak perlu terlalu profesional</strong> — lebih personal lebih baik. Boleh senyum, boleh tertawa, boleh candid.</div>
+      </div>
+      <div class="fmt-card">
+        <div class="fmt-icon">🏗️</div>
+        <div class="fmt-name">Video Structure</div>
+        <div class="fmt-desc"><strong>Hook</strong> → <strong>Intro</strong> → <strong>Content</strong> (isi + rekomendasi solusi) → <strong>CTA</strong> komentar.</div>
+      </div>
+      <div class="fmt-card">
+        <div class="fmt-icon">📁</div>
+        <div class="fmt-name">Album Strategy</div>
+        <div class="fmt-desc">Setiap kategori topik = beberapa episode. Dijadikan <strong>playlist di TikTok</strong> supaya viewer bisa marathon dan mudah di-discover.</div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="eye pk" style="margin-bottom:16px;">🗂 Content Categories</div>
+    <div class="cat-grid" style="margin-bottom:40px;">
+      <div class="cat-card">
+        <div class="cat-num" style="color:var(--pk1);">Kategori 1</div>
+        <h3>Honest Review & Product Regrets</h3>
+        <ul class="cat-topics">
+          <li>💸 Barang bayi mahal yang banyak nyesel beli</li>
+          <li>✅ Produk murah yang ternyata lebih worth it</li>
+          <li>📦 Unboxing jujur tanpa endorse</li>
+          <li>🔄 "Kalau aku bisa ulang, aku beli ini dulu"</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num" style="color:var(--bl1);">Kategori 2</div>
+        <h3>Emergency Bags & Survival Hacks</h3>
+        <ul class="cat-topics">
+          <li>💼 Isi emergency bag wajib di tas Bunda</li>
+          <li>💩 Starter pack poop drama di tempat umum</li>
+          <li>🏥 Bag rumah sakit — yang sering kelewat</li>
+          <li>🌙 Survival kit untuk malam pertama di rumah</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num" style="color:var(--pu1);">Kategori 3</div>
+        <h3>Mom's Lifestyle & Sanity Hacks</h3>
+        <ul class="cat-topics">
+          <li>🛌 Cara dapat 20 menit me-time saat bayi tidur</li>
+          <li>⚡ Batch cooking MPASI anti ribet sepekan</li>
+          <li>🧠 Mental reset cepat setelah tantrum marathon</li>
+          <li>🤱 Pumping tips untuk working moms</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num" style="color:var(--gn1);">Kategori 4</div>
+        <h3>Smart Shopping & Spill Rekomendasi</h3>
+        <ul class="cat-topics">
+          <li>💊 Vitamin & ASI booster yang beneran ngaruh</li>
+          <li>🛍 Daftar belanja sebelum bayi lahir — versi realistis</li>
+          <li>📱 Apps yang actually useful untuk new moms</li>
+          <li>💰 Budget breakdown MPASI pertama</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- B101 EXAMPLES -->
+    <div class="eye pk" style="margin-bottom:16px;">🎬 Content Examples — #Bundapedia101</div>
+    <p class="sec-d" style="margin-bottom:24px;">Setiap contoh menggunakan format: <strong>Hook → Introduction → Content → CTA</strong>. Ini panduan tone dan struktur, bukan script kata per kata.</p>
+
+    <div class="ex-grid">
+
+      <!-- EX 01 -->
+      <div class="ex-card">
+        <div class="ex-num pk">01</div>
+        <div class="ex-cat pk">Kategori 1 · Honest Review</div>
+        <div class="ex-title">Barang Bayi Mahal yang Banyak Bunda Nyesel Beli</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body">Bunda pernah beli barang bayi mahal tapi ujung-ujungnya <strong>nggak kepake sama sekali?</strong> Kamu nggak sendirian.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hari ini kita bakal ngupas tuntas <strong>barang bayi mahal yang banyak Bunda nyesel beli</strong> — dan apa yang sebaiknya dibeli sebagai gantinya.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Pertama, <strong>stroller besar yang mahal</strong> — pas anak mulai besar, mereka lebih suka jalan atau digendong. Akhirnya jadi jemuran di rumah. <em>Worth it alternative: stroller ringan lipat atau gendongan ergonomis.</em><br><br>Kedua, <strong>baju bayi branded ukuran newborn</strong> — harganya lumayan tapi cuma kepake 2–3 minggu karena <strong>pertumbuhan bayi baru lahir itu sat-set banget</strong>, Bun. <em>Worth it alternative: beli baju polos ukuran 3–6 bulan dulu, lebih panjang umur pakainya.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body">Kalau Bunda sendiri, <strong>barang apa yang paling nyesel dibeli?</strong> Tulis di kolom komentar, yuk — siapa tau bisa bantu Bunda lain yang masih mau beli!</div>
+          </div>
+        </div>
+        <span class="talent-note solo">🎤 On-cam talent · pakai "Aku/Kita"</span>
+      </div>
+
+      <!-- EX 02 -->
+      <div class="ex-card">
+        <div class="ex-num pk">02</div>
+        <div class="ex-cat pk">Kategori 2 · Emergency Bag</div>
+        <div class="ex-title">Starter Pack Emergency Bag Pas Anak Poop di Tempat Umum</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body">Si kecil tiba-tiba poop drama di mall. <strong>Tas kamu udah siap belum?</strong></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hari ini kita bakal bongkar <strong>isi Emergency Bag yang wajib ada</strong> kalau si kecil tiba-tiba poop drama di luar rumah.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Senjata wajib ada tiga: pertama, <strong>baju ganti untuk anak DAN kaos cadangan Bunda</strong> — just in case poop-nya tembus ke baju kita pas lagi digendong. Kedua, <strong>kantong plastik berpewangi khusus popok kotor</strong>. Ketiga, <strong>tisu basah non-fragrance dosis double</strong>.<br><br><em>Bonus tip: simpan mini pouch darurat terpisah dari tas utama — jadi nggak perlu kobok-kobok tas pas panik.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body">Di tas Bunda sekarang <strong>udah lengkap belum nih senjatanya?</strong> Absen di bawah!</div>
+          </div>
+        </div>
+        <span class="talent-note vo">🎬 VO + B-roll · pakai "Kita/Bunda"</span>
+      </div>
+
+      <!-- EX 03 -->
+      <div class="ex-card">
+        <div class="ex-num pk">03</div>
+        <div class="ex-cat pk">Kategori 3 · Sanity Hacks</div>
+        <div class="ex-title">Cara Dapat Me-Time 20 Menit Saat Bayi Tidur (Tanpa Guilty)</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body"><strong>Bayi tidur, Bunda langsung cuci piring?</strong> Stop — ini waktunya kamu dulu.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hari ini kita bahas cara dapat <strong>me-time yang beneran recharge</strong> di sela waktu bayi tidur — tanpa rasa bersalah.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Step 1: <strong>Tulis 1 hal yang bikin kamu senang</strong> hari ini — sekecil apapun. Ini grounding yang cepat. Step 2: <strong>Duduk, minum yang hangat, tanpa HP</strong> — 10 menit ini lebih restoratif dari 1 jam scroll. Step 3: <strong>Izinkan dirimu nggak produktif</strong> selama 20 menit itu.<br><br><em>Worth it buy: teh herbal sachet atau diffuser kecil untuk bikin suasana lebih relaxing dengan effort minimal.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body"><strong>Me-time kamu itu ngapain?</strong> Drop di bawah — mau tau rutinitas Bunda-Bunda di sini! 💕</div>
+          </div>
+        </div>
+        <span class="talent-note solo">🎤 On-cam talent · pakai "Aku"</span>
+      </div>
+
+      <!-- EX 04 -->
+      <div class="ex-card">
+        <div class="ex-num pk">04</div>
+        <div class="ex-cat pk">Kategori 4 · Smart Shopping</div>
+        <div class="ex-title">Vitamin & ASI Booster yang Beneran Ngaruh (Bukan Endorse)</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body">Udah coba 5 macam ASI booster tapi <strong>ASI tetap segitu-segitu aja?</strong> Mungkin ini yang kelewat.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hari ini aku mau <strong>spill jujur vitamin dan ASI booster yang beneran ngaruh</strong> di kehidupan aku. Ini murni testimoni, bukan endorse ya Bun!</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Yang sering dilewatkan: <strong>vitamin D3 + K2 untuk Bunda</strong> — banyak yang fokus ke booster tapi lupa nutrisi dasar Bunda sendiri yang mempengaruhi kualitas ASI. Untuk <strong>vitamin anak yang lagi GTM parah</strong>, zinc supplement kecil dosis rendah bisa bantu nafsu makan.<br><br><em>Worth it pick: suplemen omega-3 untuk Bunda menyusui — efeknya ke perkembangan otak bayi juga nyata.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body">Ada yang pakai produk yang sama? Atau <strong>punya rekomendasi lain? Bisikin di komentar!</strong> 👇</div>
+          </div>
+        </div>
+        <span class="talent-note solo">🎤 On-cam talent · pakai "Aku"</span>
+      </div>
+
+      <!-- EX 05 -->
+      <div class="ex-card">
+        <div class="ex-num pk">05</div>
+        <div class="ex-cat pk">Kategori 2 · Emergency Bag</div>
+        <div class="ex-title">Isi Tas Rumah Sakit yang Sering Kelewat Disiapkan Bunda</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body">Tas RS sudah siap — baju bayi ada, dokumen lengkap. Tapi <strong>3 hal ini sering banget ketinggalan.</strong></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hampir semua Bunda udah tahu list standar tas RS — tapi ini <strong>yang sering kelewat dan bikin nyesel pas udah di dalam</strong>.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Satu: <strong>charger HP kabel panjang</strong> — colokan RS biasanya jauh dari tempat tidur. Dua: <strong>sandal jepit buat Bunda</strong> — kamar mandi RS sering licin dan kamu akan sering bolak-balik. Tiga: <strong>cemilan untuk Ayah</strong> — dia juga butuh tenaga jagain kamu.<br><br><em>Worth it add: bantal kecil milik sendiri — bantal RS tipis dan ini seriously bikin tidur lebih nyenyak saat recovery.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body"><strong>Ada yang mau nambahin?</strong> Drop di komentar — bantu Bunda yang mau lahiran sebentar lagi! 🏥</div>
+          </div>
+        </div>
+        <span class="talent-note vo">🎬 VO + B-roll · pakai "Kita/Bunda"</span>
+      </div>
+
+      <!-- EX 06 -->
+      <div class="ex-card">
+        <div class="ex-num pk">06</div>
+        <div class="ex-cat pk">Kategori 3 · Sanity Hacks</div>
+        <div class="ex-title">Cara Batch Cook MPASI Seminggu dalam 1 Jam</div>
+        <div class="script-struct">
+          <div class="ss-row">
+            <div class="ss-label pk">🎣 Hook</div>
+            <div class="ss-body">Siapa yang tiap hari masak MPASI fresh tapi ujung-ujungnya <strong>2 jam di dapur dan si kecil malah GTM?</strong></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">👋 Intro</div>
+            <div class="ss-body">Kembali lagi di Bundapedia101! Hari ini kita bahas cara <strong>batch cook MPASI seminggu hanya dalam 1 jam</strong> — dan ini game changer banget.</div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">📌 Content</div>
+            <div class="ss-body">Minggu pagi, <strong>masak semua protein sekaligus</strong> — ayam, ikan, atau daging. Simpan di ice cube tray, masukkan freezer. Hari H tinggal thaw dan mix sama sayur segar. <strong>Total prep: 1 jam. Hemat waktu 6 hari.</strong><br><br><em>Worth it buy: ice cube tray dengan tutup dan food processor mini — dua item ini yang bikin batch cooking MPASI jadi jauh lebih efisien.</em></div>
+          </div>
+          <div class="ss-row">
+            <div class="ss-label pk">💬 CTA</div>
+            <div class="ss-body">Yang sudah coba batch cooking, <strong>teknik apa yang paling membantu kamu?</strong> Share di bawah! 🍳</div>
+          </div>
+        </div>
+        <span class="talent-note solo">🎤 On-cam talent · pakai "Aku"</span>
+      </div>
+
+    </div>
+
+    <!-- TALENT NOTE -->
+    <div class="talent-box">
+      <h3>📌 Catatan — Penggunaan "Aku" vs "Kita"</h3>
+      <div class="talent-row">
+        <div class="t-card solo">
+          <div class="t-label">🎤 On-Camera Talent</div>
+          <p>Gunakan kata <strong>"Aku"</strong> kalau videonya menampilkan satu orang talent/host yang berbicara langsung ke kamera. Terasa personal dan conversational.</p>
+        </div>
+        <div class="t-card vo">
+          <div class="t-label">🎬 Voice Over + B-Roll</div>
+          <p>Gunakan kata <strong>"Kita"</strong> atau <strong>"Minbun"</strong> kalau videonya berbasis voice over dengan visual potongan video estetik. Terasa seperti brand ngomong ke komunitas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ MOM RELATABLE ══ -->
+<section class="sec" id="relatable">
+  <div class="wrap">
+    <div class="eye pu">💕 Fri · Updated Format</div>
+    <h2 class="sec-h">Mom Relatable Content — New Direction</h2>
+    <p class="sec-d">Format lama terlalu scripted dan satu dimensi. Update Juli: konten Jumat <strong>variative</strong> — tidak harus POV, bisa confessions, ekspektasi vs realita, text-based relatable, rant ringan, atau momen heartwarming. Yang penting: authentic, tidak dibuat-buat.</p>
+
+    <div class="tone-row">
+      <div class="tone-c"><div class="tone-e">🎨</div><div class="tone-n">Variative</div><div class="tone-d">Tidak terpaku satu format. Pilih sesuai mood konten.</div></div>
+      <div class="tone-c"><div class="tone-e">😂</div><div class="tone-n">Relatable Humor</div><div class="tone-d">Lucu karena jujur — bukan karena dibuat-buat lucu.</div></div>
+      <div class="tone-c"><div class="tone-e">🥹</div><div class="tone-n">Heartwarming</div><div class="tone-d">Rayakan momen kecil. Bikin nangis terharu, bukan sedih.</div></div>
+      <div class="tone-c"><div class="tone-e">🤍</div><div class="tone-n">Zero Judgment</div><div class="tone-d">Semua Bunda valid. Semua pilihan valid.</div></div>
+      <div class="tone-c"><div class="tone-e">🔁</div><div class="tone-n">Share-worthy</div><div class="tone-d">"Tag Bunda yang relate!" — moms share ke grup WA.</div></div>
+    </div>
+
+    <!-- FORMAT LEGEND -->
+    <div class="eye pu" style="margin-bottom:12px;">🗂 Format Types yang Bisa Digunakan</div>
+    <div class="fmt-legend" style="margin-bottom:32px;">
+      <span class="fleg pov">📱 POV — visual + text overlay, no script</span>
+      <span class="fleg conf">💬 Confessions — talking head jujur, candid</span>
+      <span class="fleg vs">🔄 Ekspektasi vs Realita — split/before-after</span>
+      <span class="fleg rant">😤 Soft Rant — cathartic, relatable frustration</span>
+      <span class="fleg text">✍️ Text-Based — aesthetic quote card / caption</span>
+    </div>
+
+    <!-- RELATABLE EXAMPLES -->
+    <div class="eye pu" style="margin-bottom:16px;">🎬 Content Examples — Mom Relatable Friday</div>
+    <p style="font-size:13px;color:var(--gr5);margin-bottom:24px;">Setiap card menunjukkan format, direction visual/script, dan production notes.</p>
+
+    <div class="rel-grid">
+
+      <!-- 01 POV -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num pu">01</div>
+          <div class="rel-ftype pov">📱 Format: POV — No Script</div>
+          <div class="rel-title">Anak Tidur Jam 8, Bunda Masih Melek Jam 1</div>
+          <div class="rel-desc">Visual estetik tapi kocak: Bunda tiduran di kamar gelap, layar HP mantul ke muka, mata sayu tapi senyum-senyum.</div>
+        </div>
+        <div class="rel-screen">
+          <div class="rel-screen-lbl">📱 TEXT ON SCREEN</div>
+          <div class="rel-screen-text">POV: Anak udah tidur dari jam 8 malam biar Bundanya bisa ikutan istirahat.<br><em>Meanwhile me at 1 AM: (masih asyik scrolling)</em></div>
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Close-up + cahaya HP</span>
+            <span class="rchip snd">🎵 Sound chill + komedi</span>
+            <span class="rchip cta">💬 "Relate? Drop jam kamu masih melek 😂"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Confessions -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num pk">02</div>
+          <div class="rel-ftype conf">💬 Format: Confessions — Talking Head</div>
+          <div class="rel-title">"Aku Suka Waktu Bayinya Tidur Bukan Buat Istirahat"</div>
+          <div class="rel-desc">Monologue pendek, langsung ke kamera, tone jujur dan vulnerable. Tidak perlu edit berat — raw terasa lebih otentik.</div>
+        </div>
+        <div class="rel-confbox">
+          <strong>Direction:</strong> "Jujur ya — momen yang paling aku nantikan setiap hari itu bukan buat tidur atau rebahan. Tapi buat <strong>duduk diam tanpa ada yang butuh aku</strong>. Cuma 10 menit. Nggak pegang HP, nggak ngapa-ngapain. Ini bikin aku ngerasa guilty awalnya... tapi ternyata ini <strong>valid banget, Bun</strong>. Ini namanya sensory break dan semua ibu butuh ini."
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Talking head, minimal edit</span>
+            <span class="rchip snd">🎵 Quiet ambient audio</span>
+            <span class="rchip cta">💬 "Comment 'same' kalau pernah ngerasa ini 🤍"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 POV -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num pu">03</div>
+          <div class="rel-ftype pov">📱 Format: POV — No Script</div>
+          <div class="rel-title">Mindahin Bayi Tidur ke Kasur = Jinakin Bom Waktu</div>
+          <div class="rel-desc">Video slow-motion Bunda lagi naruh bayinya ke boks — jalan jinjit, lepas tangan super hati-hati.</div>
+        </div>
+        <div class="rel-screen">
+          <div class="rel-screen-lbl">📱 TEXT ON SCREEN</div>
+          <div class="rel-screen-text">POV: Mindahin bayi yang udah pules ke kasur.<br><em>Berasa lagi nge-jinakin bom waktu — salah gerak dikit, meledak. 😭💣</em></div>
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Slo-mo, angle belakang</span>
+            <span class="rchip snd">🎵 Sound Mission Impossible</span>
+            <span class="rchip cta">💬 "Berhasil atau meledak? 😂"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Ekspektasi vs Realita -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num bl">04</div>
+          <div class="rel-ftype vs">🔄 Format: Ekspektasi vs Realita</div>
+          <div class="rel-title">Masak MPASI Estetik 1 Jam, Si Kecil GTM</div>
+          <div class="rel-desc">Split visual: foto/video dapur rapi dan estetik → transisi ke si kecil muka cemong, makanan tumpah ke lantai.</div>
+        </div>
+        <div class="rel-vsbox">
+          <div class="vs-row">
+            <div class="vs-side a"><div class="vs-label">Ekspektasi</div>MPASI estetik, rapi, difoto dulu buat IG 📸</div>
+            <div class="vs-side b"><div class="vs-label">Realita</div>Si kecil: "Gak dulu Bun, enakan nasi putih." 👍</div>
+          </div>
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Before/after transisi</span>
+            <span class="rchip snd">🎵 Sound dramatis / pasrah viral</span>
+            <span class="rchip cta">💬 "Ekspektasi vs realita MPASI kamu? 😤"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Soft Rant -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num or">05</div>
+          <div class="rel-ftype rant">😤 Format: Soft Rant — Cathartic</div>
+          <div class="rel-title">"Kenapa Semua Orang Punya Pendapat Soal Anakku?"</div>
+          <div class="rel-desc">Talking head dengan energi "exasperated best friend" — tidak marah, tapi exasperated. Humor datang dari kejujurannya.</div>
+        </div>
+        <div class="rel-confbox">
+          <strong>Direction:</strong> "Aku kasih sufor: 'ASI-nya kenapa?' Aku kasih ASI di depan umum: <strong>tatapan</strong>. Aku bawa bayi ke mall: 'kecil banget, sering keluar'. Di rumah terus: 'anaknya kurang stimulasi'. Beli stroller mahal: 'buang-buang uang'. Beli yang murah: 'kasian anaknya'. <strong>Bunda — kita nggak akan pernah benar di mata semua orang. Jadi lebih baik benar di mata diri sendiri. 😌</strong>"
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Talking head, natural setup</span>
+            <span class="rchip snd">🎵 Upbeat sardonic audio</span>
+            <span class="rchip cta">💬 "Tambahin pengalamanmu di bawah 😤"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Text-Based -->
+      <div class="rel-card">
+        <div class="rel-top">
+          <div class="rel-num gn">06</div>
+          <div class="rel-ftype text">✍️ Format: Text-Based — Aesthetic Card</div>
+          <div class="rel-title">Menang-Menang Kecil yang Tidak Ada yang Tepuk Tangan</div>
+          <div class="rel-desc">Aesthetic text card atau talking head dengan list momen kecil yang harusnya dirayakan. Tone: warm, celebratory, uplifting.</div>
+        </div>
+        <div class="rel-textbox">
+          <strong>Direction / Text:</strong> "Untuk Bunda yang hari ini berhasil <strong>pumping di toilet kantor sambil balas email</strong>. Yang makan siang sambil duduk, <strong>bukan sambil gendong bayi</strong>. Yang MPASI pertamanya <strong>nggak langsung dimuntahin</strong>. Yang berhasil <strong>mandi lebih dari 5 menit</strong>. Kamu luar biasa, Bun. Nggak ada tepuk tangan — tapi seharusnya ada. 👏"
+        </div>
+        <div class="rel-bottom">
+          <div class="rel-chips">
+            <span class="rchip vis">📷 Aesthetic card atau talking head warm</span>
+            <span class="rchip snd">🎵 Heartwarming trending audio</span>
+            <span class="rchip cta">💬 "Drop win kamu hari ini, sekecil apapun 🏆"</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRO TIP -->
+    <div class="protip">
+      <h3>💡 Pro Tips untuk Konten Jumat</h3>
+      <ul>
+        <li>🎨 <strong>Format bebas, tone tetap sama</strong> — boleh POV, confessions, ekspektasi vs realita, atau text card. Yang tidak boleh berubah: authentic, relatable, zero corporate energy.</li>
+        <li>🔤 <strong>Font estetik tapi jelas</strong> — untuk konten text overlay, teks di layar adalah penentu orang stay nonton atau swipe. Safe zone: tengah ke atas layar, jangan di bawah 15%.</li>
+        <li>📹 <strong>Stok B-Roll harian</strong> — minta talent rekam video pendek random saat aktivitas sehari-hari (kaki jinjit, kopi, beresin mainan). Pas hari Jumat tinggal gabungkan dengan teks.</li>
+        <li>🎵 <strong>Sound = 50% dari vibe</strong> — pilih trending audio yang match dengan emosi konten. Sound yang tidak cocok bisa bunuh even the best visual.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ CALENDAR ══ -->
+<section class="sec sec-alt" id="calendar">
+  <div class="wrap">
+    <div class="eye bl">📅 Content Calendar</div>
+    <h2 class="sec-h">Weekly Template — July 2026</h2>
+    <p class="sec-d">Wed = #Bundapedia101, Fri = Mom Relatable (variative format), Sun = TikTok Slide, Sat = Caption Only.</p>
+
+    <div class="cal-wrap">
+      <table class="cal">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Content Pillar</th>
+            <th>Format</th>
+            <th>Tone</th>
+            <th>Comment CTA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dchip sun">🌅 Sun</span></td>
+            <td><div class="cal-l">TikTok Slide</div><div class="cal-n">Instagram-style carousel di TikTok</div></td>
+            <td>Swipeable slides, aesthetic layout. 3–7 slides per post.</td>
+            <td>Visual-first, clean, shareable. Tiap slide = satu insight.</td>
+            <td>"Slide mana yang paling relate buat kamu? 👇"</td>
+          </tr>
+          <tr>
+            <td><span class="dchip mon">💼 Mon</span></td>
+            <td><div class="cal-l">Mom Educative</div><div class="cal-n">Parenting tips, mom health</div></td>
+            <td>Talking head atau VO + text overlay. 45–90 detik.</td>
+            <td>Warm, supportive. "Kita dalam ini bersama."</td>
+            <td>"Pernah ngalamin ini? Cerita di bawah 💬"</td>
+          </tr>
+          <tr>
+            <td><span class="dchip tue">🍼 Tue</span></td>
+            <td><div class="cal-l">Baby Educative</div><div class="cal-n">Tumbuh kembang, milestone</div></td>
+            <td>Demo / visual + penjelasan. 45–75 detik.</td>
+            <td>Nurturing, reassuring. "Kamu sudah melakukan hal yang benar."</td>
+            <td>"Baby kamu umur berapa? Drop di bawah 🍼"</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dchip wed">🌸 Wed</span>
+              <span class="new-badge">NEW</span>
+            </td>
+            <td>
+              <div class="cal-l">#Bundapedia101</div>
+              <div class="cal-n">Weekly series — light, personal</div>
+              <span class="schip b101">🌸 Series · Album</span>
+            </td>
+            <td>On-cam atau VO + B-roll. 60–90 detik. Album-stackable.</td>
+            <td>Kasual, jujur, solutif. Santai — tidak perlu terlalu profesional.</td>
+            <td>"Punya pengalaman serupa? Spill di bawah! 💕"</td>
+          </tr>
+          <tr>
+            <td><span class="dchip thu">👶 Thu</span></td>
+            <td><div class="cal-l">Baby Educative</div><div class="cal-n">Myth-busting, deep dive</div></td>
+            <td>Comparison / myth format. 60–90 detik.</td>
+            <td>Authoritative tapi fun. "Mari luruskan ini bersama."</td>
+            <td>"Masih percaya mitos ini? Drop 🙋‍♀️ kalau iya!"</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="dchip fri">💕 Fri</span>
+              <span class="new-badge">NEW</span>
+            </td>
+            <td>
+              <div class="cal-l">Mom Relatable</div>
+              <div class="cal-n">POV / Confessions / Rant / Vs / Text</div>
+              <span class="schip rel">💕 Variative Format</span>
+            </td>
+            <td>Pilih format sesuai konten: POV, confessions, ekspektasi vs realita, rant, atau text card.</td>
+            <td>Authentic, unfiltered. Zero corporate energy. Rotate format tiap minggu.</td>
+            <td>Sesuaikan dengan format — "Tag yang relate" / pertanyaan / "Drop di bawah"</td>
+          </tr>
+          <tr>
+            <td><span class="dchip sat">✨ Sat</span></td>
+            <td><div class="cal-l">Caption Only</div><div class="cal-n">Short AI video + clickbait title</div></td>
+            <td>Short AI-generated video (15–30 detik). Judul clickbait. Value ada di caption panjang.</td>
+            <td>Intriguing, curiosity-driven. "Baca caption-nya, Bun!"</td>
+            <td>"Udah baca caption-nya? Drop pendapat kamu 👇"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ DO DON'T ══ -->
+<section class="sec" id="dodont">
+  <div class="wrap">
+    <div class="eye pk">⚡ Quick Reference</div>
+    <h2 class="sec-h">Do & Don't</h2>
+    <p class="sec-d">Panduan singkat untuk tim produksi.</p>
+
+    <div style="overflow-x:auto;border-radius:var(--r);">
+    <table class="dd-table">
+      <thead>
+        <tr>
+          <th class="doh">✅ DO</th>
+          <th class="dnt">❌ DON'T</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">Opening — #Bundapedia101</span>
+            Selalu buka dengan <strong>"Kembali lagi di Bundapedia101! Hari ini kita bakal..."</strong>
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">Opening — semua konten</span>
+            Jangan buka dengan <strong>"Halo semuanya!"</strong> — langsung masuk ke hook
+          </td>
+        </tr>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">Tone — #Bundapedia101</span>
+            Body language talent <strong>santai dan natural</strong> — tidak perlu postur atau delivery yang terlalu profesional
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">Tone — #Bundapedia101</span>
+            Jangan buat #Bundapedia101 terasa seperti <strong>kuliah atau presentasi formal</strong> — ini obrolan teman, bukan seminar
+          </td>
+        </tr>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">Bahasa</span>
+            Gunakan bahasa sehari-hari — <strong>"si kecil"</strong>, <strong>"sat-set"</strong>, <strong>"gak kepake"</strong>, bukan bahasa formal atau medis
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">Phrasing</span>
+            Hindari phrasing yang menghakimi: <strong>"Bunda yang baik pasti..."</strong> atau <strong>"Seharusnya Bunda sudah tahu..."</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">CTA — semua konten</span>
+            Akhiri setiap video dengan <strong>pertanyaan spesifik yang mudah dijawab</strong> — pilihan A/B, drop angka, atau satu kata
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">CTA — semua konten</span>
+            Jangan publish tanpa CTA — video tanpa pertanyaan di akhir kehilangan <strong>potensi comment engagement</strong> terbesar
+          </td>
+        </tr>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">Distribution — #Bundapedia101</span>
+            Stack episode sebagai <strong>album / playlist di TikTok</strong> supaya viewer bisa marathon dan mudah di-discover
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">Format — Mom Relatable (Fri)</span>
+            Jangan pakai format yang sama setiap minggu — <strong>rotate</strong> antara POV, confessions, ekspektasi vs realita, rant, dan text card
+          </td>
+        </tr>
+        <tr>
+          <td class="dd-do">
+            <span class="dd-topic">Teks layar — konten visual</span>
+            Taruh teks di <strong>zona aman tengah ke atas layar</strong> — mudah dibaca, tidak tertutup UI TikTok
+          </td>
+          <td class="dd-dn">
+            <span class="dd-topic">Teks layar — konten visual</span>
+            Jangan taruh teks di <strong>bawah 15% layar</strong> — area itu tertutup caption dan tombol TikTok
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <div class="footer-logo">🌸 <em>Bundapedia</em> by TikTok Shop</div>
+  <strong>Janice Ebelia Irfan</strong> · Content Strategy & Digital Marketing<br>
+  @bundapedia.tiktokshop · July 2026
+</div>
+
+<script>
+new Chart(document.getElementById('cDist'),{
+  type:'doughnut',
+  data:{
+    labels:['TikTok Slide (Sun)','Mom Edu (Mon)','Baby Edu (Tue+Thu)','#Bundapedia101 (Wed)','Mom Relatable (Fri)','Caption Only (Sat)'],
+    datasets:[{
+      data:[14,14,29,14,14,14],
+      backgroundColor:['#F59E0B','#D63A6F','#2563EB','#F06292','#7C3AED','#059669'],
+      borderWidth:0,hoverOffset:8
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:11},padding:8,boxWidth:12}}},
+    cutout:'60%'
+  }
+});
+
+new Chart(document.getElementById('cKpi'),{
+  type:'bar',
+  data:{
+    labels:['TikTok Slide','Mom Edu','#Bunda101','Baby Edu','Mom Relatable','Caption Only'],
+    datasets:[
+      {label:'Comment Rate',data:[35,70,85,65,95,60],backgroundColor:'#D63A6F',borderRadius:6,borderWidth:0},
+      {label:'Save Rate',data:[80,50,55,60,30,45],backgroundColor:'#2563EB',borderRadius:6,borderWidth:0},
+      {label:'Share Rate',data:[75,45,50,50,90,55],backgroundColor:'#7C3AED',borderRadius:6,borderWidth:0}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:11},padding:8,boxWidth:12}}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Poppins',size:10}}},
+      y:{beginAtZero:true,max:100,grid:{color:'#F3F4F6'},ticks:{font:{family:'Poppins',size:11},callback:v=>v+'%'}}
+    }
+  }
+});
+</script>
+</body>
+</html>
